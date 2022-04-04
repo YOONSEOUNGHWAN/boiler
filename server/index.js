@@ -38,6 +38,13 @@ app.get('/', (req, res) => {
   res.send('HI')
 })
 
+app.get('/api/hello',(req,res)=>{
+  // console.log('hi')
+  res.send('안녕~~~')
+})
+
+
+
 app.post('/api/user/register', (req, res) => {
 
   //회원가입 정보 client에서 가져온 것을 DB삽입
@@ -51,7 +58,7 @@ app.post('/api/user/register', (req, res) => {
 
 app.post('/api/user/login', (req, res) => {
   //email검사 DB
-  User.findOne({ email: req.body.eil }, (err, user) => {
+  User.findOne({ email: req.body.email }, (err, user) => {
     if (!user) {
       return res.json({
         loginSuccess: false,
@@ -101,7 +108,4 @@ app.get('/api/user/logout', auth, (req,res)=>{
     })
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
+app.listen(port, ()=>console.log(`Example app ${port}!`))
