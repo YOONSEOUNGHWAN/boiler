@@ -91,6 +91,7 @@ app.get('/api/user/auth', auth, (req,res)=>{
       _id: req.user._id,
       email:req.user.email,
       isAdmin: req.user.role === 0 ? false : true,
+      isAuth: true,
       name: req.user.name,
       lastname:req.user.lastname,
       image:req.user.image
